@@ -1,0 +1,7 @@
+#!/bin/bash
+url="https://www.amfiindia.com/spages/NAVAll.txt"
+output="scheme_nav.tsv"
+
+curl -s $url | awk -F';' 'NR > 1 {print $4 "\t" $5}' > $output
+
+echo "Data saved to $output"
